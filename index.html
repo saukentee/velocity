@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Worksheet — Механикалық қозғалыстың салыстырмалылығы</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#eef3f8;color:#172033}
+.container{max-width:950px;margin:0 auto;padding:24px}
+.header{background:linear-gradient(135deg,#2457d6,#4c7cf0);color:white;padding:28px;border-radius:20px 20px 0 0}
+.header h1{margin:0 0 8px;font-size:30px}.header p{margin:0;opacity:.9}
+.info{display:grid;grid-template-columns:1fr 140px 150px;gap:12px;background:white;padding:18px;border-bottom:1px solid #dce3ec}
+input,textarea{width:100%;padding:12px;border:1px solid #cbd5e1;border-radius:10px;font-size:16px}
+.card{background:white;margin-top:16px;padding:22px;border-radius:16px;box-shadow:0 4px 14px rgba(30,50,80,.07)}
+h2{margin-top:0;font-size:20px}.task{margin:15px 0;padding:15px;background:#f7f9fc;border-radius:12px}
+.option{display:block;padding:9px;margin:5px 0;cursor:pointer}
+table{width:100%;border-collapse:collapse;margin-top:10px}th,td{border:1px solid #d6dde7;padding:10px;text-align:left}th{background:#edf2f7}
+select{padding:9px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px}
+button{border:0;border-radius:12px;padding:13px 20px;font-size:16px;font-weight:bold;cursor:pointer}
+.primary{background:#2457d6;color:white}.secondary{background:#e8eef7;color:#172033}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.result{display:none;margin-top:18px;padding:20px;border-radius:14px;background:#eef7ee;border:1px solid #b9d9bb}
+.correct{color:#18733a}.wrong{color:#b42318}.explain{font-size:14px;color:#475569;margin-top:5px}
+@media(max-width:650px){.info{grid-template-columns:1fr}.header h1{font-size:24px}.container{padding:10px}.card{padding:15px}}
+</style>
+</head>
+<body>
+<div class="container">
+<header class="header">
+<h1>Механикалық қозғалыстың салыстырмалылығы</h1>
+<p>7-сынып физикасы • Интерактивті worksheet</p>
+</header>
+
+<section class="info">
+<input id="name" placeholder="Оқушының аты-жөні">
+<input id="class" placeholder="Сыныбы">
+<input id="date" type="date">
+</section>
+
+<form id="worksheet">
+<section class="card">
+<h2>1-тапсырма. Бос орынды толтыр</h2>
+<div class="task">
+<p>1. Дененің басқа денелерге қатысты орнының уақыт бойынша өзгеруі — <input data-answer="қозғалыс" placeholder="жауабыңызды жазыңыз"> деп аталады.</p>
+<p>2. Қозғалысты сипаттау үшін таңдалған дене — <input data-answer="санақ денесі" placeholder="жауабыңызды жазыңыз"> деп аталады.</p>
+<p>3. Бір дене әртүрлі денелерге қатысты <input data-answer="қозғалыста" placeholder="жауабыңызды жазыңыз"> немесе <input data-answer="тыныштықта" placeholder="жауабыңызды жазыңыз"> болуы мүмкін.</p>
+</div>
+</section>
+
+<section class="card">
+<h2>2-тапсырма. Дұрыс па, бұрыс па?</h2>
+<div class="task">
+<p>1. Қозғалыс барлық бақылаушы үшін бірдей болады.</p>
+<label class="option"><input type="radio" name="q2_1" value="wrong"> Дұрыс</label>
+<label class="option"><input type="radio" name="q2_1" value="correct"> Бұрыс</label>
+
+<p>2. Автобуста отырған жолаушы автобусқа қатысты тыныштықта.</p>
+<label class="option"><input type="radio" name="q2_2" value="correct"> Дұрыс</label>
+<label class="option"><input type="radio" name="q2_2" value="wrong"> Бұрыс</label>
+
+<p>3. Сол жолаушы жолдағы ағашқа қатысты қозғалыста.</p>
+<label class="option"><input type="radio" name="q2_3" value="correct"> Дұрыс</label>
+<label class="option"><input type="radio" name="q2_3" value="wrong"> Бұрыс</label>
+
+<p>4. Қозғалыс пен тыныштық салыстырмалы ұғымдар.</p>
+<label class="option"><input type="radio" name="q2_4" value="correct"> Дұрыс</label>
+<label class="option"><input type="radio" name="q2_4" value="wrong"> Бұрыс</label>
+</div>
+</section>
+
+<section class="card">
+<h2>3-тапсырма. Ойлан!</h2>
+<div class="task">
+<p>Автобус жолмен қозғалып келеді. Оның ішінде Айдос отыр.</p>
+<p><b>а)</b> Айдос автобусқа қатысты қозғала ма?</p>
+<label class="option"><input type="radio" name="q3a" value="no"> Иә</label>
+<label class="option"><input type="radio" name="q3a" value="yes"> Жоқ</label>
+
+<p><b>ә)</b> Айдос жол жиегіндегі ағашқа қатысты қозғала ма?</p>
+<label class="option"><input type="radio" name="q3b" value="yes"> Иә</label>
+<label class="option"><input type="radio" name="q3b" value="no"> Жоқ</label>
+
+<p><b>б)</b> Неліктен қозғалысы әртүрлі сипатталады?</p>
+<textarea id="q3c" rows="3" placeholder="Жауабыңызды жазыңыз..."></textarea>
+</div>
+</section>
+
+<section class="card">
+<h2>4-тапсырма. Сәйкестендір</h2>
+<div class="task">
+<table>
+<tr><th>Жағдай</th><th>Жауап</th></tr>
+<tr><td>Айдос автобусқа қатысты</td><td><select id="q4a"><option value="">Таңдаңыз</option><option value="қозғалыста">Қозғалыста</option><option value="тыныштықта">Тыныштықта</option></select></td></tr>
+<tr><td>Айдос жолға қатысты</td><td><select id="q4b"><option value="">Таңдаңыз</option><option value="қозғалыста">Қозғалыста</option><option value="тыныштықта">Тыныштықта</option></select></td></tr>
+<tr><td>Айдос ағашқа қатысты</td><td><select id="q4c"><option value="">Таңдаңыз</option><option value="қозғалыста">Қозғалыста</option><option value="тыныштықта">Тыныштықта</option></select></td></tr>
+</table>
+</div>
+</section>
+
+<section class="card">
+<h2>5-тапсырма. Жағдаяттық есеп</h2>
+<div class="task">
+<p>Пойыз 72 км/сағ жылдамдықпен қозғалып келеді. Пойыз ішінде отырған оқушы кітап оқып отыр.</p>
+<p>1. Оқушы пойызға қатысты қандай күйде?</p>
+<label class="option"><input type="radio" name="q5_1" value="correct"> Тыныштықта</label>
+<label class="option"><input type="radio" name="q5_1" value="wrong"> Қозғалыста</label>
+<p>2. Оқушы теміржол бойындағы бағанаға қатысты қандай күйде?</p>
+<label class="option"><input type="radio" name="q5_2" value="wrong"> Тыныштықта</label>
+<label class="option"><input type="radio" name="q5_2" value="correct"> Қозғалыста</label>
+<p>3. Бұл мысал нені көрсетеді?</p>
+<label class="option"><input type="radio" name="q5_3" value="correct"> Қозғалыстың салыстырмалылығын</label>
+<label class="option"><input type="radio" name="q5_3" value="wrong"> Дененің массасының өзгеруін</label>
+</div>
+</section>
+
+<section class="card">
+<h2>6-тапсырма. Қорытынды</h2>
+<div class="task">
+<p>«Механикалық қозғалыстың салыстырмалылығы дегеніміз...»</p>
+<textarea id="q6" rows="4" placeholder="Өз сөзіңізбен түсіндіріңіз..."></textarea>
+</div>
+</section>
+
+<section class="card">
+<h2>⭐ 7-тапсырма. Challenge</h2>
+<div class="task">
+<p>Екі оқушы эскалаторда тұр. Эскалатор жоғары қарай қозғалады. Бірінші оқушы эскалаторға қатысты тыныштықта, ал екінші оқушы эскалатор бойымен жоғары қарай жүріп келеді.</p>
+<p><b>Қай оқушының Жерге қатысты жылдамдығы үлкен?</b></p>
+<textarea id="q7" rows="4" placeholder="Жауабыңызды түсіндіріңіз..."></textarea>
+</div>
+</section>
+
+<div class="actions">
+<button type="submit" class="primary">✓ Жауаптарды тексеру</button>
+<button type="button" class="secondary" id="reset">↻ Қайта бастау</button>
+</div>
+</form>
+
+<div class="result" id="result" aria-live="polite"></div>
+</div>
+
+<script>
+const form=document.getElementById('worksheet');
+const result=document.getElementById('result');
+
+function norm(v){
+ return (v||'').toLowerCase().trim().replace(/[.,!?;:]/g,'').replace(/\s+/g,' ');
+}
+function radio(name){
+ const el=document.querySelector('input[name="'+name+'"]:checked');
+ return el?el.value:'';
+}
+
+form.addEventListener('submit',function(e){
+ e.preventDefault();
+ let score=0,total=16,details=[];
+
+ document.querySelectorAll('[data-answer]').forEach((el,i)=>{
+   const ok=norm(el.value)===norm(el.dataset.answer);
+   if(ok) score++;
+   details.push('<div class="'+(ok?'correct':'wrong')+'">1-тапсырма, '+(i+1)+' — '+(ok?'✓ дұрыс':'✗ қайта қараңыз')+'</div>');
+ });
+
+ ['q2_1','q2_2','q2_3','q2_4','q3a','q3b','q5_1','q5_2','q5_3'].forEach((n)=>{
+   const ok=radio(n)==='correct'||(n==='q3a'&&radio(n)==='no')||(n==='q3b'&&radio(n)==='yes');
+   if(ok) score++;
+ });
+ const selects=[['q4a','тыныштықта'],['q4b','қозғалыста'],['q4c','қозғалыста']];
+ selects.forEach(([id,ans])=>{if(document.getElementById(id).value===ans)score++;});
+
+ const q3c=norm(document.getElementById('q3c').value);
+ const q6=norm(document.getElementById('q6').value);
+ const q7=norm(document.getElementById('q7').value);
+ if(q3c.length>15)score++;
+ if(q6.length>15)score++;
+ if(q7.length>15)score++;
+
+ total=19;
+ let percent=Math.round(score/total*100);
+ let grade=percent>=90?'Өте жақсы':percent>=75?'Жақсы':percent>=50?'Қанағаттанарлық':'Қайталап оқу қажет';
+
+ result.style.display='block';
+ result.innerHTML='<h2>Нәтиже</h2><p><b>'+score+' / '+total+' ұпай — '+percent+'%</b></p><p>'+grade+'</p>'+
+ '<hr>'+details.join('')+
+ '<p class="explain"><b>Ескерту:</b> ашық жауаптарда мәтіннің ұзындығы ескеріледі. Мұғалім мазмұнын жеке бағалай алады.</p>';
+ result.scrollIntoView({behavior:'smooth',block:'start'});
+});
+
+document.getElementById('reset').addEventListener('click',()=>{
+ form.reset(); result.style.display='none'; result.innerHTML='';
+ window.scrollTo({top:0,behavior:'smooth'});
+});
+</script>
+</body>
+</html>

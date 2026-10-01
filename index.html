@@ -139,7 +139,25 @@ button{border:0;border-radius:12px;padding:13px 20px;font-size:16px;font-weight:
 
 <div class="result" id="result" aria-live="polite"></div>
 </div>
+ // Оқушы нәтижесін Google Sheets-ке жіберу функциясы
+const scriptURL = https://script.google.com/macros/s/AKfycbwb0AYmOmyyeDP4iwbT4MhZBPlPA8vkDSgx92Oe-5-KcIK7Zg58AxppXM2lPGpziBat/exec;
 
+function sendToGoogleSheets(name, studentClass, scoreText) {
+  const data = {
+    name: name,
+    studentClass: studentClass,
+    score: scoreText
+  };
+
+  fetch(scriptURL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  }).then(() => {
+    console.log('Нәтиже сәтті жіберілді!');
+  }).catch(error => console.error('Қате:', error));
+}
 <script>
 const form=document.getElementById('worksheet');
 const result=document.getElementById('result');
@@ -192,24 +210,5 @@ document.getElementById('reset').addEventListener('click',()=>{
  window.scrollTo({top:0,behavior:'smooth'});
 });
 </script>
- // Оқушы нәтижесін Google Sheets-ке жіберу функциясы
-const scriptURL = https://script.google.com/macros/s/AKfycbwb0AYmOmyyeDP4iwbT4MhZBPlPA8vkDSgx92Oe-5-KcIK7Zg58AxppXM2lPGpziBat/exec;
-
-function sendToGoogleSheets(name, studentClass, scoreText) {
-  const data = {
-    name: name,
-    studentClass: studentClass,
-    score: scoreText
-  };
-
-  fetch(scriptURL, {
-    method: 'POST',
-    mode: 'no-cors',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(data)
-  }).then(() => {
-    console.log('Нәтиже сәтті жіберілді!');
-  }).catch(error => console.error('Қате:', error));
-}
 </body>
 </html>
